@@ -1,5 +1,5 @@
 {
-    "name": "phpro/mage2-module-translations",
+    "name": "konstantins90/phpro-mage2-module-translations",
     "description": "Manage translations via the Magento backend",
     "type": "magento2-module",
     "license": "MIT",
