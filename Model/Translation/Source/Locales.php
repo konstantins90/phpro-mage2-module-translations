@@ -51,7 +51,9 @@ class Locales implements OptionSourceInterface
         $locale = array_unique($locale);
         sort($locale);
 
-        return $this->filterLocales($locale);
+        return $locale;
+
+        // return $this->filterLocales($locale);
     }
 
     /**
