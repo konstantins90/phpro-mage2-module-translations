@@ -36,11 +36,19 @@ class Locales implements OptionSourceInterface
      */
     public function toOptionArray(): array
     {
-        $locale = [];
+        $locale = [
+            'en_US',
+            'ko_KR',
+            'ja_JP',
+            'zh_Hant_TW',
+            'de_DE',
+            'ru_RU',
+        ];
+
         $stores = $this->storeManager->getStores($withDefault = false);
         foreach ($stores as $store) {
             $storeLang = $this->scopeConfig->getValue(
-                'general/locale/code',
+                self::XML_PATH_LOCALE,
                 \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
                 $store->getStoreId()
             );
@@ -51,9 +59,7 @@ class Locales implements OptionSourceInterface
         $locale = array_unique($locale);
         sort($locale);
 
-        return $locale;
-
-        // return $this->filterLocales($locale);
+        return $this->filterLocales($locale);
     }
 
     /**
